@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def input_text_from_console():
     """
     Get console input and return entered string
@@ -9,7 +12,8 @@ def input_text_from_console():
     Returns:
         str: entered string
     """
-    pass
+    user_input = input("")
+    return user_input
 
 
 def input_text_from_file(file_path):
@@ -29,7 +33,8 @@ def input_text_from_file(file_path):
         Raises:
             FileNotFoundError: if file does not exists
     """
-    pass
+    with open(file_path) as file:
+        return file.read()
 
 
 def input_text_with_pandas(file_path):
@@ -38,15 +43,16 @@ def input_text_with_pandas(file_path):
 
         Examples:
             >>> input_text_with_pandas(../data/test.txt)
-            DataFrame of file
+            Text from file
 
         Args:
             file_path (str): path to file
 
         Returns:
-            DataFrame: Dataframe of file
+            str: content of the file
         Raises:
             FileNotFoundError: if file does not exists
             ValueError: If the file format is invalid or cannot be parsed as a DataFrame
     """
-    pass
+    df = pd.read_csv(file_path)
+    return df.to_string()

@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def output_to_console(text):
     """
         Print text to console
@@ -11,7 +14,7 @@ def output_to_console(text):
         Returns:
             None
     """
-    pass
+    print(text)
 
 
 def output_to_file(file_path, data):
@@ -28,7 +31,8 @@ def output_to_file(file_path, data):
         Returns:
             None
     """
-    pass
+    with open(file_path, "w") as file:
+        file.write(data)
 
 
 def output_to_file_with_pandas(file_path, data):
@@ -45,5 +49,9 @@ def output_to_file_with_pandas(file_path, data):
             Returns:
                 None
         """
-    pass
+    data_to_df = {
+        "text": [data]
+    }
+    df = pd.DataFrame(data_to_df)
+    df.to_csv(file_path)
 
