@@ -55,4 +55,4 @@ def input_text_with_pandas(file_path):
             ValueError: If the file format is invalid or cannot be parsed as a DataFrame
     """
     df = pd.read_csv(file_path)
-    return df.to_string()
+    return df.get("text")[0]
